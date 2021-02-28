@@ -56,7 +56,7 @@ function App() {
             // `config.json` will connect to the public Glide Radio server.  To
             // connect to the dummy server running on your own machine, fetch
             // `config-dummy.json` instead.
-            const response = await fetch("/config.json");
+            const response = await fetch("/config-public.json");
             if (!response.ok) {
                 setConfig(false);
                 return;
