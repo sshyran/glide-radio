@@ -1,6 +1,8 @@
 # Glide Radio
 
-Sonification tool for backends
+Glide Radio is a [sonification](https://en.wikipedia.org/wiki/Sonification) tool for backends.
+
+[Listen to Public Glide Radio!](https://radio.glideapps.com/)
 
 ## Running it
 
