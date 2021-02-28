@@ -1,0 +1,97 @@
+{
+    "server": "http://localhost:3141/dummy",
+    "dashboard": {
+        "name": "Glide",
+        "url": "https://glideapps.com"
+    },
+    "okBase": 150,
+    "errorBase": 15,
+    "eventDisplayNames": {
+        "processWidgets": "Process widgets",
+        "embiggenProduction": "Embiggen production",
+        "frobnicateGears": "Frobnicate gears",
+        "adjustObnix": "Adjust obnix",
+        "releaseFadoodle": "Release fadoodle",
+        "mollifyRannygazoo": "Mollify rannygazoo"
+    },
+    "eventMelodies": {
+        "melodies": {
+            "sendAppFeedback": false,
+            "inAppPurchase": false,
+            "exportAppData": false,
+            "deleteApp": false,
+            "sendShareSMS": false,
+            "triggerAppWebhookAction": false,
+            "createAppFromTemplate": false,
+            "generatePublishedAppDataFromSheet": false,
+            "processNewComment": false,
+            "triggerZap": false,
+            "processWidgets": ["G5", "E5", "G5", "C5"],
+            "embiggenProduction": ["B5", "A5", "B5", "C4"],
+            "frobnicateGears": ["B4", "F5", "D5", "B4"],
+            "adjustObnix": ["D5", "G5", "E5", "C5"],
+            "releaseFadoodle": ["D5", "G5", "A5"],
+            "mollifyRannygazoo": ["D5", "E5", "D5", "A5", "D5"]
+        },
+        "defaultSuccessMelody": ["G4", "C5", "E5", "C5", "E5"],
+        "defaultErrorMelody": ["F5", "B4", "E5", "D5"],
+        "ignoreSuccesses": {
+            "adjustObnix": true,
+            "releaseFadoodle": true,
+            "mollifyRannygazoo": true
+        }
+    },
+    "chordSamples": {
+        "chordURLs": [
+            "piano-chords/ace.mp3",
+            "piano-chords/ceg.mp3",
+            "piano-chords/dfa.mp3",
+            "piano-chords/fac.mp3",
+            "piano-chords/gbd.mp3"
+        ]
+    },
+    "errorDrums": {
+        "drumURLs": {
+            "kick": "drums/kick.mp3",
+            "snare": "drums/snare.mp3",
+            "hihat": "drums/hihat.mp3",
+            "tom": "drums/tom.mp3"
+        }
+    },
+    "eventSamples": {
+        "samples": {
+            "adjustObnix": ["sfx/chime.mp3", 0],
+            "releaseFadoodle": ["sfx/pipes.mp3", 0],
+            "mollifyRannygazoo": ["sfx/coin.mp3", 0.096]
+        }
+    },
+    "granular": {
+        "url": "ambient/Thunderstorm.mp3"
+    },
+    "looperDrone": {
+        "url": "jack/drone-loop.wav"
+    },
+    "counts": {
+        "expectedSuccesses": {
+            "processWidgets": 100,
+            "embiggenProduction": 30,
+            "frobnicateGears": 20,
+            "adjustObnix": 0.5,
+            "releaseFadoodle": 0.5,
+            "mollifyRannygazoo": 0.8
+        },
+        "defaultExpectedSuccesses": 1,
+        "notableSuccessThreshold": 0.7,
+
+        "expectedErrors": {
+            "processWidgets": 10,
+            "embiggenProduction": 3,
+            "frobnicateGears": 2,
+            "adjustObnix": 0.1,
+            "releaseFadoodle": 0.1,
+            "mollifyRannygazoo": 0.2
+        },
+        "defaultExpectedErrors": 1,
+        "notableErrorThreshold": 0.5
+    }
+}
