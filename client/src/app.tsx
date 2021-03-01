@@ -138,20 +138,15 @@ function App() {
                         <img src="/images/glide.svg" alt="Glide Radio" />
                         <div className="description">
                             <div>
-                                Glide Radio is a{" "}
-                                <a
-                                    href="https://en.wikipedia.org/wiki/Sonification"
-                                    rel="noopener noreferrer"
-                                    target="_blank">
-                                    sonification
-                                </a>{" "}
-                                tool for backends. Wouldn't it be cool if you could listen to ambient music that tells
-                                you about what's going on in your backend? It would, which is why we built Glide Radio.
+                                You're listening to{" "}
+                                <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
+                                    Glide
+                                </a>
+                                's backend.
                             </div>
                             <div className="hiring">
-                                Interested in joining Glide?{" "}
-                                <a href="https://www.glideapps.com/jobs" rel="noopener noreferrer" target="_blank">
-                                    Open positions
+                                <a href="https://glideapps.com/jobs" rel="noopener noreferrer" target="_blank">
+                                    We are hiring!
                                 </a>
                             </div>
                         </div>
