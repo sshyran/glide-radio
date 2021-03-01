@@ -135,7 +135,9 @@ function App() {
 
                 <div className="content">
                     <div className="top">
-                        <img src="/images/glide.svg" alt="Glide Radio" />
+                        <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
+                            <img src="/images/glide.svg" alt="Glide Radio" />
+                        </a>
                         <div className="description">
                             <div>
                                 You're listening to{" "}
