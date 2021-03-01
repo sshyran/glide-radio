@@ -1,9 +1,5 @@
 {
     "server": "https://radio.glideapps.com/api/public",
-    "dashboard": {
-        "name": "Glide",
-        "url": "https://glideapps.com"
-    },
     "okBase": 2200,
     "errorBase": 80,
     "eventDisplayNames": {
