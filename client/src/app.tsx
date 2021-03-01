@@ -44,10 +44,7 @@ function App() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [soundScene, setSoundScene] = useState<SoundScene>();
     const [log, setLog] = useState<string[]>([]);
-    const [password, setPassword] = useState<[string, boolean]>([
-        loadPassword(),
-        false,
-    ]);
+    const [password, setPassword] = useState<[string, boolean]>([loadPassword(), false]);
 
     const loopTime = 5000; // 5 seconds request and play loop
 
@@ -93,7 +90,7 @@ function App() {
 
         let lastLog: string[] = [];
         const logger: Logger = {
-            log: (t) => {
+            log: t => {
                 lastLog = [...lastLog, t];
                 while (lastLog.length > logLength) {
                     lastLog.shift();
@@ -102,16 +99,11 @@ function App() {
             },
         };
 
-        const data = new Stats(config.server, password[0], loopTime, (s) => {
+        const data = new Stats(config.server, password[0], loopTime, s => {
             logger.log(
                 `${s.aggregates.oks} / ${s.aggregates.errors} — ` +
-                    _.sortBy(getFailureStats(s.data), (s) => -s.count)
-                        .map(
-                            (s) =>
-                                `${getNameForEvent(s.endpoint, config)}:${
-                                    s.count
-                                }`
-                        )
+                    _.sortBy(getFailureStats(s.data), s => -s.count)
+                        .map(s => `${getNameForEvent(s.endpoint, config)}:${s.count}`)
                         .join(" - ")
             );
         });
@@ -125,12 +117,9 @@ function App() {
         };
     }, [config, password]);
 
-    const setPasswordToTry = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setPassword([e.target.value, false]);
-        },
-        []
-    );
+    const setPasswordToTry = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword([e.target.value, false]);
+    }, []);
 
     const onPause = useCallback(() => {
         if (soundScene === undefined) return;
@@ -138,56 +127,50 @@ function App() {
         setIsPlaying(false);
     }, [soundScene]);
 
-    // const increaseOKs = useCallback(() => {
-    //     if (soundScene === undefined) return;
-    //     soundScene.increaseOKs();
-    // }, [soundScene]);
-
-    // const decreaseOKs = useCallback(() => {
-    //     if (soundScene === undefined) return;
-    //     soundScene.decreaseOKs();
-    // }, [soundScene]);
-
-    // const increaseErrors = useCallback(() => {
-    //     if (soundScene === undefined) return;
-    //     soundScene.increaseErrors();
-    // }, [soundScene]);
-
-    // const decreaseErrors = useCallback(() => {
-    //     if (soundScene === undefined) return;
-    //     soundScene.decreaseErrors();
-    // }, [soundScene]);
-
     return (
         <>
             <GlobalStyle />
             <AppContainer>
-                {/* <iframe
-                    className="feed"
-                    title="ISS feed"
-                    width="480"
-                    height="270"
-                    src="https://ustream.tv/embed/17074538?html5ui=1&autoplay=true&controls=false"
-                    scrolling="no"
-                    allowFullScreen
-                    frameBorder="0"
-                ></iframe> */}
-
                 <div className="feed"></div>
 
                 <div className="content">
                     <div className="top">
-                        <img src="/images/glide.svg" alt="Glide Radio" />
+                        <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
+                            <img src="/images/glide.svg" alt="Glide Radio" />
+                        </a>
+                        <div className="description">
+                            <div>
+                                You're listening to{" "}
+                                <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
+                                    Glide
+                                </a>
+                                's backend.
+                            </div>
+
+                            <div className="hiring">
+                                <a href="https://glideapps.com/jobs" rel="noopener noreferrer" target="_blank">
+                                    We are hiring!
+                                </a>
+                            </div>
+
+                            <div className="github">
+                                <a
+                                    className="github-link"
+                                    href="https://github.com/glideapps/glide-radio"
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <img className="octocat" src="/images/github.svg" alt="Glide Radio Github" />
+                                    Contribute here
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="middle">
                         {!password[1] && (
                             <div>
                                 Password
-                                <input
-                                    onChange={setPasswordToTry}
-                                    value={password[0]}
-                                />
+                                <input onChange={setPasswordToTry} value={password[0]} />
                             </div>
                         )}
                         {!isPlaying && (
@@ -204,7 +187,7 @@ function App() {
 
                     <div className="bottom">
                         <div className="controls">
-                            {soundScene?.modules.map((m) => (
+                            {soundScene?.modules.map(m => (
                                 <ModuleRenderer module={m} />
                             ))}
                         </div>
@@ -212,39 +195,6 @@ function App() {
                             {log.map((s, i) => (
                                 <div key={i}>{s}</div>
                             ))}
-                            {/* <div className="event-triggers">
-                                <button
-                                    className="button"
-                                    onClick={increaseOKs}
-                                >
-                                    OK *= 2
-                                </button>{" "}
-                                <button
-                                    className="button"
-                                    onClick={decreaseOKs}
-                                >
-                                    OK /= 2
-                                </button>{" "}
-                                <button
-                                    className="button"
-                                    onClick={increaseErrors}
-                                >
-                                    Error *= 2
-                                </button>{" "}
-                                <button
-                                    className="button"
-                                    onClick={decreaseErrors}
-                                >
-                                    Error /= 2
-                                </button>
-                            </div>
-                            {config !== undefined && config !== false && (
-                                <small>
-                                    <a href={config.dashboard.url}>
-                                        {config.dashboard.name}
-                                    </a>
-                                </small>
-                            )} */}
                         </div>
                     </div>
                 </div>

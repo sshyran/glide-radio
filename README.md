@@ -1,6 +1,8 @@
 # Glide Radio
 
-Sonification tool for backends
+Glide Radio is a [sonification](https://en.wikipedia.org/wiki/Sonification) tool for backends. Wouldn't it be cool if you could listen to ambient music that tells you about what's going on in your backend? It would, which is why we built Glide Radio.
+
+[Listen to Public Glide Radio!](https://radio.glideapps.com/)
 
 ## Running it
 
@@ -98,3 +100,7 @@ npm start
 Then, modify [app.tsx](client/src/app.tsx) in the frontend to fetch `config-dummy.json` instead of `config.json`. Reload your frontend and it should fetch its data from the dummy server.
 
 Please note that it doesn't automatically rebuild, so if you make changes you'll have to `build` and `start` again.
+
+## Future ideas
+
+-   More comprehensive API for melody creation

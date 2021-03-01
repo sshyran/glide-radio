@@ -9,12 +9,7 @@ export const AppContainer = styled.div`
     text-transform: uppercase;
 
     .feed {
-        background-image: linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0) 50%,
-                rgba(0, 0, 0, 0.2) 100%
-            ),
-            url("/images/sky.jpg");
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 100%), url("/images/sky.jpg");
         position: absolute;
         z-index: -10;
         width: 100%;
@@ -42,7 +37,39 @@ export const AppContainer = styled.div`
         padding: 4vw;
     }
 
-    .top,
+    .top {
+        display: flex;
+        justify-content: space-between;
+
+        .description {
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+            line-height: 19px;
+
+            a {
+                color: white;
+            }
+
+            .hiring {
+                margin-top: 20px;
+            }
+            .github {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                .github-link {
+                    display: flex;
+                    align-items: center;
+                    .octocat {
+                        margin-right: 10px;
+                        width: 26px;
+                    }
+                }
+            }
+        }
+    }
+
     .middle,
     .bottom {
         display: flex;

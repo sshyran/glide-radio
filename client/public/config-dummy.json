@@ -1,9 +1,5 @@
 {
     "server": "http://localhost:3141/dummy",
-    "dashboard": {
-        "name": "Glide",
-        "url": "https://glideapps.com"
-    },
     "okBase": 150,
     "errorBase": 15,
     "eventDisplayNames": {

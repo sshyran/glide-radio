@@ -5,14 +5,6 @@ export interface GlobalConfig {
     readonly server: string;
 
     /**
-     * The name and URL of the service to display in the dashboard.
-     */
-    readonly dashboard: {
-        readonly name: string;
-        readonly url: string;
-    };
-
-    /**
      * The display names for the endpoints.
      */
     readonly eventDisplayNames: Record<string, string>;
