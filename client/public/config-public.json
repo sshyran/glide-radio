@@ -159,30 +159,15 @@
     },
     "eventSamples": {
         "samples": {
-            "createAppFromTemplate": ["sfx/Lip%20Sound%2004.mp3", 0.014],
-            "generatePublishedAppDataFromSheet": [
-                "sfx/438647-Chimes-Cartoon-Metal-Trickle-Ascending-Magic_Spell-Appear-Fairy_Dust.mp3",
-                0
-            ],
-            "deleteApp": [
-                "sfx/Modular%20UI%20-%20Subtle%20Hi%20Tech-008.mp3",
-                0
-            ],
-            "inAppPurchase": [
-                "sfx/SM_Hit%20Metal%20Bing%20Small_05.mp3",
-                0.096
-            ],
-            "triggerAppWebhookAction": ["sfx/knife%20shing_1.mp3", 0.57],
-            "triggerZap": [
-                "sfx/Laser%20zap%20deep%20rumble_BLASTWAVEFX_05729.mp3",
-                0.017
-            ],
-            "reportApp": ["sfx/Modular%20UI%20-%20Solo%20Beeps-070.mp3", 0],
-            "sendShareSMS": ["sfx/354624-water-drip-005.mp3", 0.065],
-            "exportAppData": [
-                "sfx/355949-Bluezone-BC0256-water-splash-small-011.mp3",
-                0
-            ]
+            "createAppFromTemplate": ["sfx/lip.mp3", 0.014],
+            "generatePublishedAppDataFromSheet": ["sfx/chime.mp3", 0],
+            "deleteApp": ["sfx/zap.mp3", 0],
+            "inAppPurchase": ["sfx/coin.mp3", 0.096],
+            "triggerAppWebhookAction": ["sfx/knife.mp3", 0.57],
+            "triggerZap": ["sfx/laser.mp3", 0.017],
+            "reportApp": ["sfx/pipes.mp3", 0],
+            "sendShareSMS": ["sfx/drip.mp3", 0.065],
+            "exportAppData": ["sfx/splash.mp3", 0]
         }
     },
     "granular": {
