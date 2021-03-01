@@ -146,9 +146,21 @@ function App() {
                                 </a>
                                 's backend.
                             </div>
+
                             <div className="hiring">
                                 <a href="https://glideapps.com/jobs" rel="noopener noreferrer" target="_blank">
                                     We are hiring!
+                                </a>
+                            </div>
+
+                            <div className="github">
+                                <a
+                                    className="github-link"
+                                    href="https://github.com/glideapps/glide-radio"
+                                    rel="noopener noreferrer"
+                                    target="_blank">
+                                    <img className="octocat" src="/images/github.svg" alt="Glide Radio Github" />
+                                    Contribute here
                                 </a>
                             </div>
                         </div>

@@ -42,6 +42,8 @@ export const AppContainer = styled.div`
         justify-content: space-between;
 
         .description {
+            display: flex;
+            flex-direction: column;
             width: 300px;
             font-size: 10px;
             line-height: 19px;
@@ -49,10 +51,23 @@ export const AppContainer = styled.div`
             a {
                 color: white;
             }
-        }
 
-        .hiring {
-            margin-top: 24px;
+            .hiring {
+                margin-top: 20px;
+            }
+            .github {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                .github-link {
+                    display: flex;
+                    align-items: center;
+                    .octocat {
+                        margin-right: 10px;
+                        width: 26px;
+                    }
+                }
+            }
         }
     }
 

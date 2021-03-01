@@ -100,3 +100,7 @@ npm start
 Then, modify [app.tsx](client/src/app.tsx) in the frontend to fetch `config-dummy.json` instead of `config.json`. Reload your frontend and it should fetch its data from the dummy server.
 
 Please note that it doesn't automatically rebuild, so if you make changes you'll have to `build` and `start` again.
+
+## Future ideas
+
+-   More comprehensive API for melody creation
