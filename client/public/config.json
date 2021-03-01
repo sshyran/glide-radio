@@ -267,6 +267,6 @@
             "error": 55000
         },
         "defaultExpectedErrors": 100,
-        "notableErrorThreshold": 300
+        "notableErrorThreshold": 200
     }
 }
