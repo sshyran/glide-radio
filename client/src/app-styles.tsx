@@ -44,7 +44,6 @@ export const AppContainer = styled.div`
         .description {
             display: flex;
             flex-direction: column;
-            width: 300px;
             font-size: 10px;
             line-height: 19px;
 
