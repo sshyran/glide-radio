@@ -144,12 +144,12 @@ function App() {
                                 <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
                                     Glide
                                 </a>
-                                's backend.
+                                's backend
                             </div>
 
                             <div className="hiring">
                                 <a href="https://glideapps.com/jobs" rel="noopener noreferrer" target="_blank">
-                                    We are hiring!
+                                    We're hiring
                                 </a>
                             </div>
 
@@ -160,7 +160,7 @@ function App() {
                                     rel="noopener noreferrer"
                                     target="_blank">
                                     <img className="octocat" src="/images/github.svg" alt="Glide Radio Github" />
-                                    Contribute here
+                                    GitHub
                                 </a>
                             </div>
                         </div>
