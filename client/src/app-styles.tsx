@@ -44,6 +44,7 @@ export const AppContainer = styled.div`
         .description {
             display: flex;
             flex-direction: column;
+            text-align: right;
             font-size: 10px;
             line-height: 19px;
 
@@ -58,6 +59,7 @@ export const AppContainer = styled.div`
                 margin-top: 20px;
                 display: flex;
                 align-items: center;
+                justify-content: flex-end;
                 .github-link {
                     display: flex;
                     align-items: center;
