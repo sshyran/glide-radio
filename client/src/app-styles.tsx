@@ -1,6 +1,7 @@
+import YoutubeBackground from "react-youtube-background";
 import styled from "styled-components";
 
-export const AppContainer = styled.div`
+export const AppContainer = styled(YoutubeBackground)`
     color: #fff;
     width: 100%;
     height: 100%;
