@@ -97,4 +97,14 @@ export function initKeyboardInput(): void {
 
         return;
     });
+
+    console.log("Press +/- to increase/decrease load");
+    console.log();
+    for (const {
+        name,
+        keys: [ks, ke],
+    } of endpoints) {
+        console.log(`${ks}/${ke} to add ${name} success/error`);
+    }
+    console.log();
 }
