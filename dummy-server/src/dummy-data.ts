@@ -68,6 +68,26 @@ export function makeDummyData(): readonly DataPoint[] {
     return dataPoints;
 }
 
+function printHelp(withHelpKey: boolean): void {
+    console.log();
+    console.log("Keys:");
+    console.log();
+    console.log("    +/- to increase/decrease load");
+    console.log();
+    for (const {
+        name,
+        keys: [ks, ke],
+    } of endpoints) {
+        console.log(`    ${ks}/${ke} to add ${name} success/error`);
+    }
+    console.log();
+
+    if (withHelpKey) {
+        console.log("    ? to print key bindings again");
+        console.log();
+    }
+}
+
 export function initKeyboardInput(): void {
     readline.emitKeypressEvents(process.stdin);
 
@@ -77,7 +97,9 @@ export function initKeyboardInput(): void {
             return process.exit();
         }
 
-        if (str === "+") {
+        if (str === "?") {
+            printHelp(false);
+        } else if (str === "+") {
             scale *= 1.1;
             console.log("scale", scale);
         } else if (str === "-") {
@@ -98,13 +120,5 @@ export function initKeyboardInput(): void {
         return;
     });
 
-    console.log("Press +/- to increase/decrease load");
-    console.log();
-    for (const {
-        name,
-        keys: [ks, ke],
-    } of endpoints) {
-        console.log(`${ks}/${ke} to add ${name} success/error`);
-    }
-    console.log();
+    printHelp(true);
 }
