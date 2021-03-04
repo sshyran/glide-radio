@@ -2,7 +2,7 @@ import * as fs from "fs";
 import express, { Request, Response } from "express";
 import { defined } from "@glideapps/ts-necessities";
 
-import { makeDummyData } from "./dummy-data";
+import { initKeyboardInput, makeDummyData } from "./dummy-data";
 
 // Simple configuration from a JSON file.
 interface Config {
@@ -67,3 +67,5 @@ app.post("/dummy", (req, res) => {
 app.listen(config.port, () => {
     return console.log(`server is listening on ${config.port}`);
 });
+
+initKeyboardInput();
