@@ -15,9 +15,9 @@
             "processWidgets": ["G5", "E5", "G5", "C5"],
             "embiggenProduction": ["B5", "A5", "B5", "C4"],
             "frobnicateGears": ["B4", "F5", "D5", "B4"],
-            "adjustObnix": ["D5", "G5", "E5", "C5"],
-            "releaseFadoodle": ["D5", "G5", "A5"],
-            "mollifyRannygazoo": ["D5", "E5", "D5", "A5", "D5"]
+            "adjustObnix": false,
+            "releaseFadoodle": false,
+            "mollifyRannygazoo": false
         },
         "defaultSuccessMelody": ["G4", "C5", "E5", "C5", "E5"],
         "defaultErrorMelody": ["F5", "B4", "E5", "D5"],
@@ -48,7 +48,7 @@
         "samples": {
             "adjustObnix": ["samples/sfx/zap.mp3", 0],
             "releaseFadoodle": ["samples/sfx/ping.mp3", 0],
-            "mollifyRannygazoo": ["samples/sfx/glass.mp3", 0.096]
+            "mollifyRannygazoo": ["samples/sfx/glass.mp3", 0]
         }
     },
     "granular": {
