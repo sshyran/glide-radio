@@ -123,7 +123,14 @@
             "registerForPushNotifications": ["D5", "G5", "E5", "C5"],
             "testIframeEmbeddable": ["D5", "G5", "A5"],
             "reportGeocodesInApp": ["D5", "E5", "D5", "A5", "D5"],
-            "previewCharges": ["D5", "E5", "C5", "C4", "G4"]
+            "previewCharges": ["D5", "E5", "C5", "C4", "G4"],
+            "renameTable": ["G5", "E5", "G5", "C5"],
+            "pingUnsplashDownload": ["B5", "A5", "B5", "C4"],
+            "listTables": ["B4", "F5", "D5", "B4"],
+            "inviteUserToTransferApp": ["D5", "G5", "E5", "C5"],
+            "sendPinForEmail": ["D5", "G5", "A5"],
+            "getFavicon": ["D5", "E5", "D5", "A5", "D5"],
+            "addTableToApp": ["D5", "E5", "C5", "C4", "G4"]
         },
         "defaultSuccessMelody": ["G4", "C5", "E5", "C5", "E5"],
         "defaultErrorMelody": ["F5", "B4", "E5", "D5"],
@@ -261,7 +268,7 @@
             "setBoostsForOwner": 119.57045865931936
         },
         "defaultExpectedSuccesses": 100,
-        "notableSuccessThreshold": 150,
+        "notableSuccessThreshold": 100,
 
         "expectedErrors": {
             "error": 55000
