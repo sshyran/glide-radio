@@ -12,16 +12,6 @@
     },
     "eventMelodies": {
         "melodies": {
-            "sendAppFeedback": false,
-            "inAppPurchase": false,
-            "exportAppData": false,
-            "deleteApp": false,
-            "sendShareSMS": false,
-            "triggerAppWebhookAction": false,
-            "createAppFromTemplate": false,
-            "generatePublishedAppDataFromSheet": false,
-            "processNewComment": false,
-            "triggerZap": false,
             "processWidgets": ["G5", "E5", "G5", "C5"],
             "embiggenProduction": ["B5", "A5", "B5", "C4"],
             "frobnicateGears": ["B4", "F5", "D5", "B4"],
