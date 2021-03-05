@@ -16,10 +16,10 @@ const drumWeights = {
     snare: 1.0,
     tom: 2.0,
 };
-const kicks: DrumType[] = _.range(drumWeights.kick).map((_) => "kick");
-const snares: DrumType[] = _.range(drumWeights.snare).map((_) => "snare");
-const hihats: DrumType[] = _.range(drumWeights.hihat).map((_) => "hihat");
-const toms: DrumType[] = _.range(drumWeights.tom).map((_) => "tom");
+const kicks: DrumType[] = _.range(drumWeights.kick).map(_ => "kick");
+const snares: DrumType[] = _.range(drumWeights.snare).map(_ => "snare");
+const hihats: DrumType[] = _.range(drumWeights.hihat).map(_ => "hihat");
+const toms: DrumType[] = _.range(drumWeights.tom).map(_ => "tom");
 
 const pickArray = [...kicks, ...snares, ...hihats, ...toms];
 
@@ -53,6 +53,8 @@ export class ErrorGlitchModule implements Module {
 
     private readonly errorBase: number;
 
+    private ready: boolean = false;
+
     constructor(volume: number, globalConfig: GlobalConfig) {
         const config = globalConfig.errorDrums as Config;
         this.errorBase = globalConfig.errorBase;
@@ -61,11 +63,19 @@ export class ErrorGlitchModule implements Module {
         this.reverb = new Tone.Reverb({ decay: 2.0, wet: 0.3 });
         this.volume = new Tone.Volume(volume).connect(this.meter);
 
+        let numToLoad = 4;
+        const onPlayerLoaded = () => {
+            --numToLoad;
+            if (numToLoad <= 0) {
+                this.ready = true;
+            }
+        };
+
         this.kickPanner = new Tone.AutoPanner({
             frequency: 10,
             depth: 0.1,
         }).start();
-        this.kickPlayer = new Tone.Player(config.drumURLs.kick).chain(
+        this.kickPlayer = new Tone.Player({ url: config.drumURLs.kick, onload: onPlayerLoaded }).chain(
             this.reverb,
             this.kickPanner,
             this.volume,
@@ -76,7 +86,7 @@ export class ErrorGlitchModule implements Module {
             frequency: 10,
             depth: 1.0,
         }).start();
-        this.snarePlayer = new Tone.Player(config.drumURLs.snare).chain(
+        this.snarePlayer = new Tone.Player({ url: config.drumURLs.snare, onload: onPlayerLoaded }).chain(
             this.reverb,
             this.snarePanner,
             this.volume,
@@ -87,7 +97,7 @@ export class ErrorGlitchModule implements Module {
             frequency: 10,
             depth: 1.0,
         }).start();
-        this.hihatPlayer = new Tone.Player(config.drumURLs.hihat).chain(
+        this.hihatPlayer = new Tone.Player({ url: config.drumURLs.hihat, onload: onPlayerLoaded }).chain(
             this.reverb,
             this.hihatPanner,
             this.volume,
@@ -98,7 +108,7 @@ export class ErrorGlitchModule implements Module {
             frequency: 10,
             depth: 1.0,
         }).start();
-        this.tomPlayer = new Tone.Player(config.drumURLs.tom).chain(
+        this.tomPlayer = new Tone.Player({ url: config.drumURLs.tom, onload: onPlayerLoaded }).chain(
             this.reverb,
             this.tomPanner,
             this.volume,
@@ -106,11 +116,9 @@ export class ErrorGlitchModule implements Module {
         );
     }
 
-    public play(
-        snapshot: StatSnapshot,
-        time: number,
-        { loopLength }: PlaySettings
-    ): void {
+    public play(snapshot: StatSnapshot, time: number, { loopLength }: PlaySettings): void {
+        if (!this.ready) return;
+
         let { errors } = snapshot.aggregates;
 
         errors *= 12 / this.errorBase;
@@ -130,7 +138,7 @@ export class ErrorGlitchModule implements Module {
             toms: 0,
         };
 
-        _.range(errors).forEach((i) => {
+        _.range(errors).forEach(i => {
             // Fill up kicks and hihats first to keep pulse
             const minKicks = randomItem([4, 8]);
             const minHihats = randomItem([8, 16]);
@@ -164,10 +172,8 @@ export class ErrorGlitchModule implements Module {
             // Kicks and hihats sound better when quantized to 8
             // 4 can result in triplets so let the snares and toms do that
             const rounded =
-                drumType === "kick" || drumType === "hihat"
-                    ? roundUpToMultiple(count, 8)
-                    : roundUpToMultiple(count, 4);
-            return randomItems(_.range(rounded), count).map((i) => ({
+                drumType === "kick" || drumType === "hihat" ? roundUpToMultiple(count, 8) : roundUpToMultiple(count, 4);
+            return randomItems(_.range(rounded), count).map(i => ({
                 time: i * (loopLength / rounded),
                 duration: loopLength / rounded,
                 volume: _.random(-18, -22),
@@ -199,16 +205,13 @@ export class ErrorGlitchModule implements Module {
             },
         ];
 
-        stepsGroup.forEach((s) => {
+        stepsGroup.forEach(s => {
             const { player, panner, steps } = s;
             new Tone.Part((time, value) => {
                 player.start(time, 0, value.duration);
                 player.volume.value = value.volume + escalationVolume;
                 player.playbackRate = value.playbackSpeed;
-                panner.frequency.rampTo(
-                    value.panFreq,
-                    _.random(1.0, loopLength / 2)
-                );
+                panner.frequency.rampTo(value.panFreq, _.random(1.0, loopLength / 2));
             }, steps).start(time);
         });
     }

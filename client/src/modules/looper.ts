@@ -17,12 +17,10 @@ export class LooperModule implements Module {
     private readonly volume: Tone.Volume;
     private readonly player: Tone.Player;
     private readonly filter: Tone.Filter;
-    private ready: boolean;
+    private ready: boolean = false;
 
     constructor(volume: number, globalConfig: GlobalConfig) {
         const config = globalConfig.looperDrone as Config;
-
-        this.ready = false;
 
         this.meter = new Tone.Meter();
         this.volume = new Tone.Volume(volume).connect(this.meter);
@@ -41,11 +39,7 @@ export class LooperModule implements Module {
         this.player.loop = true;
     }
 
-    public play(
-        _snapshot: StatSnapshot,
-        time: number,
-        { scalePerDimension, playbackRate }: PlaySettings
-    ): void {
+    public play(_snapshot: StatSnapshot, time: number, { scalePerDimension, playbackRate }: PlaySettings): void {
         // FIXME: find a new way to do this. This will overide the mute
         // const okVolume = -20 + Math.log2(scalePerDimension) * 6;
 
@@ -54,11 +48,7 @@ export class LooperModule implements Module {
             this.player.start(time);
         }
 
-        const newFreq = scale(
-            scalePerDimension,
-            { min: 1, max: 4 },
-            { min: 100, max: 2000 }
-        );
+        const newFreq = scale(scalePerDimension, { min: 1, max: 4 }, { min: 100, max: 2000 });
 
         this.filter.frequency.rampTo(newFreq, _.random(1.0, 3.0));
         this.player.playbackRate = playbackRate;
