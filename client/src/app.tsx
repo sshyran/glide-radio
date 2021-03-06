@@ -149,11 +149,9 @@ function App() {
                         </a>
                         <div className="description">
                             <div>
-                                You're listening to{" "}
-                                <a href="https://glideapps.com/" rel="noopener noreferrer" target="_blank">
-                                    Glide
+                                <a href="https://youtu.be/lmKp-Pt-wbk" rel="noopener noreferrer" target="_blank">
+                                    You're listening to Glide's backend
                                 </a>
-                                's backend
                             </div>
 
                             <div className="hiring">
